@@ -7,13 +7,13 @@ import java.util.Map;
 import java.util.Random;
 
 public class MetodosGenerales {
-	Map<String, Contraseña> listado = new HashMap<String, Contraseña>();
+	Map<String, Contrasena> listado = new HashMap<String, Contrasena>();
 
-	public void guardarContraseña(Contraseña c, String contra) {
+	public void guardarContraseña(Contrasena c, String contra) {
 		listado.put(contra, c);
 	}
 	public  void guardarDatos() {
-		Contraseña c= new Contraseña();
+		Contrasena c= new Contrasena();
 		try {
 			FileOutputStream fos=new FileOutputStream("C:\\miproyecto\\guardar.data");
 			try {
@@ -23,7 +23,7 @@ public class MetodosGenerales {
 				while(it.hasNext()){
 				String key = it.next();
 				
-				Contraseña c1=new Contraseña(listado.get(key).getServir(), listado.get(key).getTipo(), key);
+				Contrasena c1=new Contrasena(listado.get(key).getServir(), listado.get(key).getTipo(), key);
 				oos.writeObject(c1);
 				
 				}
@@ -43,13 +43,13 @@ public class MetodosGenerales {
 	public void leerDatos() {
 		
 	}
-	public static String GenerarContraseñaLetras(TipoContraseña tipo) {
+	public static String GenerarContraseñaLetras(TipoContrasena tipo) {
 		String abecedario = "abcdefghijklmnñopqrstuvwxyz";
 		int numero = 0;
 		String contraseña = "";
 		char caracter = ' ';
 		Random r = new Random();
-		if (tipo == TipoContraseña.corta) {
+		if (tipo == TipoContrasena.corta) {
 			for (int i = 0; i < 8; i++) {
 				caracter = abecedario.charAt(r.nextInt(abecedario.length()));
 				numero = (int) ((Math.random() * 2) + 1);
@@ -73,10 +73,10 @@ public class MetodosGenerales {
 		return contraseña;
 	}
 
-	public static String GenerarContraseñaNumeros(TipoContraseña tipo) {
+	public static String GenerarContraseñaNumeros(TipoContrasena tipo) {
 		String contraseña = "";
 		int numero;
-		if (tipo == TipoContraseña.corta) {
+		if (tipo == TipoContrasena.corta) {
 			for (int i = 0; i < 8; i++) {
 				numero = (int) ((Math.random() * 9) + 1);
 				contraseña = contraseña + numero;
@@ -91,13 +91,13 @@ public class MetodosGenerales {
 		return contraseña;
 	}
 
-	public static String GenerarContraseñaLetrasYNumeros(TipoContraseña tipo) {
+	public static String GenerarContraseñaLetrasYNumeros(TipoContrasena tipo) {
 		String abecedario = "abcdefghijklmnñopqrstuvwxyz";
 		int numero = 0;
 		String contraseña = "";
 		char caracter = ' ';
 		Random r = new Random();
-		if (tipo == TipoContraseña.corta) {
+		if (tipo == TipoContrasena.corta) {
 			for (int i = 0; i < 8; i++) {
 				numero = (int) ((Math.random() * 2) + 1);
 				if (numero == 1) {

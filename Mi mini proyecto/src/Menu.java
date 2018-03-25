@@ -7,7 +7,7 @@ public class Menu {
 
 	// Metodos
 	public static void menuPrincipal() throws NumberFormatException, IOException {
-		Contraseña c1 = new Contraseña();
+		Contrasena c1 = new Contrasena();
 		MetodosGenerales mg=new MetodosGenerales();
 		String contra = null, servir = null;
 		int n = 0;
@@ -32,9 +32,9 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine();
-					contra = MetodosGenerales.GenerarContraseñaLetrasYNumeros(TipoContraseña.corta);
+					contra = MetodosGenerales.GenerarContraseñaLetrasYNumeros(TipoContrasena.corta);
 					System.out.println(contra);
-					c1 = new Contraseña(servir, TipoContraseña.corta, contra);
+					c1 = new Contrasena(servir, TipoContrasena.corta, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
 					System.out.println(mg.listado.size());
@@ -47,9 +47,9 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine();
-					contra = MetodosGenerales.GenerarContraseñaLetrasYNumeros(TipoContraseña.larga);
+					contra = MetodosGenerales.GenerarContraseñaLetrasYNumeros(TipoContrasena.larga);
 					System.out.println(contra);
-					c1 = new Contraseña(servir, TipoContraseña.larga, contra);
+					c1 = new Contrasena(servir, TipoContrasena.larga, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
 				} catch (NullPointerException e) {
@@ -60,9 +60,9 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine();
-					contra = MetodosGenerales.GenerarContraseñaNumeros(TipoContraseña.corta);
+					contra = MetodosGenerales.GenerarContraseñaNumeros(TipoContrasena.corta);
 					System.out.println(contra);
-					c1 = new Contraseña(servir, TipoContraseña.corta, contra);
+					c1 = new Contrasena(servir, TipoContrasena.corta, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
 				} catch (NullPointerException e) {
@@ -73,9 +73,9 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine();
-					contra = MetodosGenerales.GenerarContraseñaNumeros(TipoContraseña.larga);
+					contra = MetodosGenerales.GenerarContraseñaNumeros(TipoContrasena.larga);
 					System.out.println(contra);
-					c1 = new Contraseña(servir, TipoContraseña.larga, contra);
+					c1 = new Contrasena(servir, TipoContrasena.larga, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
 				} catch (NullPointerException e) {
@@ -87,9 +87,9 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine();
-					contra = MetodosGenerales.GenerarContraseñaLetras(TipoContraseña.corta);
+					contra = MetodosGenerales.GenerarContraseñaLetras(TipoContrasena.corta);
 					System.out.println(contra);
-					c1 = new Contraseña(servir, TipoContraseña.corta, contra);
+					c1 = new Contrasena(servir, TipoContrasena.corta, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
 				} catch (NullPointerException e) {
@@ -101,9 +101,9 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine(); 
-					contra = MetodosGenerales.GenerarContraseñaLetras(TipoContraseña.larga);
+					contra = MetodosGenerales.GenerarContraseñaLetras(TipoContrasena.larga);
 					System.out.println(contra);
-					c1 = new Contraseña(servir, TipoContraseña.larga, contra);
+					c1 = new Contrasena(servir, TipoContrasena.larga, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
 				} catch (NullPointerException e) {
