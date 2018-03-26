@@ -1,13 +1,10 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+
 
 public class Contrasena implements java.io.Serializable {
 	// Atributos
 	private String servir;
 	private String contrasena;
 	private TipoContrasena tipo;
-	// Listado
 	
 
 	// Constructores

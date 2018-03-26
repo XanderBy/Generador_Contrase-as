@@ -1,6 +1,10 @@
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,37 +16,73 @@ public class MetodosGenerales {
 	public void guardarContraseña(Contrasena c, String contra) {
 		listado.put(contra, c);
 	}
-	public  void guardarDatos() {
-		Contrasena c= new Contrasena();
+
+	public void guardarDatos() {
+		Contrasena c = new Contrasena();
 		try {
-			FileOutputStream fos=new FileOutputStream("C:\\miproyecto\\guardar.data");
+			FileOutputStream fos = new FileOutputStream("C:\\miproyecto\\guardar.txt");
 			try {
-				
-				ObjectOutputStream oos=new ObjectOutputStream(fos);
+				System.out.println("1");
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				java.util.Iterator<String> it = listado.keySet().iterator();
-				while(it.hasNext()){
-				String key = it.next();
-				
-				Contrasena c1=new Contrasena(listado.get(key).getServir(), listado.get(key).getTipo(), key);
-				oos.writeObject(c1);
-				
+				while (it.hasNext()) {
+					String key = it.next();
+
+					Contrasena c1 = new Contrasena(listado.get(key).getServir(), listado.get(key).getTipo(), key);
+					oos.writeObject(c1);
+
 				}
-				if(oos !=null) {
+				if (oos != null) {
 					oos.close();
 					fos.close();
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+
+	}
+
+	@SuppressWarnings("unused")
+	public void leerDatos() throws IOException, ClassNotFoundException {
+		
+		File f = null;
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+
+		f = new File("C:\\miproyecto\\guardar.txt");
+		System.out.println("hola");
+		try {
+		if (f.exists()) {
+			System.out.println("hola2");
+				fis = new FileInputStream(f);
+					ois = new ObjectInputStream(fis);
+					while (true) {
+						System.out.println("hola3");
+						Contrasena c1 = null;
+							c1 = (Contrasena) ois.readObject();
+							System.out.println(c1.print());
+							
+							String contrasena = c1.getContrasena();
+							Contrasena contra = c1;
+							listado.put(contrasena, contra);
+					}
+		}
+				if (ois != null) {
+						ois.close();
+						fis.close();
+				}
+		}catch(EOFException e) {
+			System.out.println("");
+		}
+			
+		
 		
 	}
-	public void leerDatos() {
-		
-	}
+
 	public static String GenerarContraseñaLetras(TipoContrasena tipo) {
 		String abecedario = "abcdefghijklmnñopqrstuvwxyz";
 		int numero = 0;

@@ -6,7 +6,7 @@ public class Menu {
 	// Constructor
 
 	// Metodos
-	public static void menuPrincipal() throws NumberFormatException, IOException {
+	public static void menuPrincipal() throws NumberFormatException, IOException, ClassNotFoundException {
 		Contrasena c1 = new Contrasena();
 		MetodosGenerales mg=new MetodosGenerales();
 		String contra = null, servir = null;
@@ -52,6 +52,7 @@ public class Menu {
 					c1 = new Contrasena(servir, TipoContrasena.larga, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
+					mg.guardarDatos();
 				} catch (NullPointerException e) {
 					System.out.println("Ha habido un error en el proceso de generar la contraseña con numeros y letras larga");
 				}
@@ -65,6 +66,7 @@ public class Menu {
 					c1 = new Contrasena(servir, TipoContrasena.corta, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
+					mg.guardarDatos();
 				} catch (NullPointerException e) {
 					System.out.println("Ha habido un error en el proceso de generar la contraseña con numeros corta");
 				}
@@ -78,6 +80,7 @@ public class Menu {
 					c1 = new Contrasena(servir, TipoContrasena.larga, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
+					mg.guardarDatos();
 				} catch (NullPointerException e) {
 					System.out.println("Ha habido un error en el proceso de generar la contraseña con numeros larga");
 				}
@@ -92,6 +95,7 @@ public class Menu {
 					c1 = new Contrasena(servir, TipoContrasena.corta, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
+					mg.guardarDatos();
 				} catch (NullPointerException e) {
 					System.out.println("Ha habido un error en el proceso de generar la contraseña con letras corta");
 				}
@@ -106,6 +110,7 @@ public class Menu {
 					c1 = new Contrasena(servir, TipoContrasena.larga, contra);
 					System.out.println(c1.print());
 					mg.guardarContraseña(c1, contra);
+					mg.guardarDatos();
 				} catch (NullPointerException e) {
 					System.out.println("Ha habido un error en el proceso de generar la contraseña con letras larga");
 				}
@@ -118,6 +123,7 @@ public class Menu {
 
 			break;
 		case 2:// Mostrar Contraseñas
+			mg.leerDatos();
 			break;
 		case 3: // Eliminar Contraseñas
 			break;

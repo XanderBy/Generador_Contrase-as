@@ -2,7 +2,7 @@ import java.io.IOException;
 
 public class Main {
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws NumberFormatException, IOException, ClassNotFoundException {
 		Menu.menuPrincipal();
 
 	}
