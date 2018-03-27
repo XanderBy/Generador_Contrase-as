@@ -15,8 +15,12 @@ public class MetodosGenerales {
 
 	public void guardarContraseña(Contrasena c, String contra) {
 		listado.put(contra, c);
+		System.out.println("La contraseña ha sido guardada");
 	}
-
+	public void eliminarContraseña(String key) {
+		listado.remove(key);
+		System.out.println("La contraseña ha sido eliminada");
+	}
 	public void guardarDatos() {
 		Contrasena c = new Contrasena();
 		try {

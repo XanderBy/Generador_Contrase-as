@@ -126,6 +126,10 @@ public class Menu {
 			mg.leerDatos();
 			break;
 		case 3: // Eliminar Contraseñas
+			mg.leerDatos();
+			System.out.println("Escribe la contraseña que quieras eliminar");
+			String key=teclado.readLine();
+			mg.eliminarContraseña(key);
 			break;
 		default:
 			System.out.println("Has cometido un error");
