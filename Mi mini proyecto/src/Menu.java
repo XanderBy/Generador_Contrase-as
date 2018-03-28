@@ -130,6 +130,7 @@ public class Menu {
 			System.out.println("Escribe la contraseña que quieras eliminar");
 			String key=teclado.readLine();
 			mg.eliminarContraseña(key);
+			mg.guardarDatos();
 			break;
 		default:
 			System.out.println("Has cometido un error");

@@ -58,14 +58,11 @@ public class MetodosGenerales {
 		ObjectInputStream ois = null;
 
 		f = new File("C:\\miproyecto\\guardar.txt");
-		System.out.println("hola");
 		try {
 		if (f.exists()) {
-			System.out.println("hola2");
 				fis = new FileInputStream(f);
 					ois = new ObjectInputStream(fis);
 					while (true) {
-						System.out.println("hola3");
 						Contrasena c1 = null;
 							c1 = (Contrasena) ois.readObject();
 							System.out.println(c1.print());
