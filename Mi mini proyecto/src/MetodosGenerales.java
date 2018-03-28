@@ -13,20 +13,24 @@ import java.util.Random;
 public class MetodosGenerales {
 	Map<String, Contrasena> listado = new HashMap<String, Contrasena>();
 
-	public void guardarContraseña(Contrasena c, String contra) {
+	public void guardarContrasena(Contrasena c, String contra) {
 		listado.put(contra, c);
 		System.out.println("La contraseña ha sido guardada");
 	}
-	public void eliminarContraseña(String key) {
-		listado.remove(key);
-		System.out.println("La contraseña ha sido eliminada");
+	public void eliminarContrasena(String key) {
+		if(listado.size()>0) {
+			listado.remove(key);
+			System.out.println("La contraseña ha sido eliminada");
+		}else {
+			System.out.println("No existen contraseñas");
+		}
+		
 	}
 	public void guardarDatos() {
 		Contrasena c = new Contrasena();
 		try {
 			FileOutputStream fos = new FileOutputStream("C:\\miproyecto\\guardar.txt");
 			try {
-				System.out.println("1");
 				ObjectOutputStream oos = new ObjectOutputStream(fos);
 				java.util.Iterator<String> it = listado.keySet().iterator();
 				while (it.hasNext()) {
@@ -63,10 +67,12 @@ public class MetodosGenerales {
 				fis = new FileInputStream(f);
 					ois = new ObjectInputStream(fis);
 					while (true) {
+						
 						Contrasena c1 = null;
 							c1 = (Contrasena) ois.readObject();
+							System.out.println("---------------------------");
 							System.out.println(c1.print());
-							
+							System.out.println("---------------------------");
 							String contrasena = c1.getContrasena();
 							Contrasena contra = c1;
 							listado.put(contrasena, contra);
@@ -84,7 +90,7 @@ public class MetodosGenerales {
 		
 	}
 
-	public static String GenerarContraseñaLetras(TipoContrasena tipo) {
+	public static String GenerarContrasenaLetras(TipoContrasena tipo) {
 		String abecedario = "abcdefghijklmnñopqrstuvwxyz";
 		int numero = 0;
 		String contraseña = "";
@@ -114,7 +120,7 @@ public class MetodosGenerales {
 		return contraseña;
 	}
 
-	public static String GenerarContraseñaNumeros(TipoContrasena tipo) {
+	public static String GenerarContrasenaNumeros(TipoContrasena tipo) {
 		String contraseña = "";
 		int numero;
 		if (tipo == TipoContrasena.corta) {
@@ -132,7 +138,7 @@ public class MetodosGenerales {
 		return contraseña;
 	}
 
-	public static String GenerarContraseñaLetrasYNumeros(TipoContrasena tipo) {
+	public static String GenerarContrasenaLetrasYNumeros(TipoContrasena tipo) {
 		String abecedario = "abcdefghijklmnñopqrstuvwxyz";
 		int numero = 0;
 		String contraseña = "";

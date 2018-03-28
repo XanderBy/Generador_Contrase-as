@@ -32,11 +32,10 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine();
-					contra = MetodosGenerales.GenerarContraseñaLetrasYNumeros(TipoContrasena.corta);
-					System.out.println(contra);
+					contra = MetodosGenerales.GenerarContrasenaLetrasYNumeros(TipoContrasena.corta);
 					c1 = new Contrasena(servir, TipoContrasena.corta, contra);
 					System.out.println(c1.print());
-					mg.guardarContraseña(c1, contra);
+					mg.guardarContrasena(c1, contra);
 					System.out.println(mg.listado.size());
 					mg.guardarDatos();
 				} catch (NullPointerException e) {
@@ -47,11 +46,10 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine();
-					contra = MetodosGenerales.GenerarContraseñaLetrasYNumeros(TipoContrasena.larga);
-					System.out.println(contra);
+					contra = MetodosGenerales.GenerarContrasenaLetrasYNumeros(TipoContrasena.larga);
 					c1 = new Contrasena(servir, TipoContrasena.larga, contra);
 					System.out.println(c1.print());
-					mg.guardarContraseña(c1, contra);
+					mg.guardarContrasena(c1, contra);
 					mg.guardarDatos();
 				} catch (NullPointerException e) {
 					System.out.println("Ha habido un error en el proceso de generar la contraseña con numeros y letras larga");
@@ -61,11 +59,10 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine();
-					contra = MetodosGenerales.GenerarContraseñaNumeros(TipoContrasena.corta);
-					System.out.println(contra);
+					contra = MetodosGenerales.GenerarContrasenaNumeros(TipoContrasena.corta);
 					c1 = new Contrasena(servir, TipoContrasena.corta, contra);
 					System.out.println(c1.print());
-					mg.guardarContraseña(c1, contra);
+					mg.guardarContrasena(c1, contra);
 					mg.guardarDatos();
 				} catch (NullPointerException e) {
 					System.out.println("Ha habido un error en el proceso de generar la contraseña con numeros corta");
@@ -75,11 +72,10 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine();
-					contra = MetodosGenerales.GenerarContraseñaNumeros(TipoContrasena.larga);
-					System.out.println(contra);
+					contra = MetodosGenerales.GenerarContrasenaNumeros(TipoContrasena.larga);
 					c1 = new Contrasena(servir, TipoContrasena.larga, contra);
 					System.out.println(c1.print());
-					mg.guardarContraseña(c1, contra);
+					mg.guardarContrasena(c1, contra);
 					mg.guardarDatos();
 				} catch (NullPointerException e) {
 					System.out.println("Ha habido un error en el proceso de generar la contraseña con numeros larga");
@@ -90,11 +86,10 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine();
-					contra = MetodosGenerales.GenerarContraseñaLetras(TipoContrasena.corta);
-					System.out.println(contra);
+					contra = MetodosGenerales.GenerarContrasenaLetras(TipoContrasena.corta);
 					c1 = new Contrasena(servir, TipoContrasena.corta, contra);
 					System.out.println(c1.print());
-					mg.guardarContraseña(c1, contra);
+					mg.guardarContrasena(c1, contra);
 					mg.guardarDatos();
 				} catch (NullPointerException e) {
 					System.out.println("Ha habido un error en el proceso de generar la contraseña con letras corta");
@@ -105,11 +100,10 @@ public class Menu {
 				try {
 					System.out.println("¿Para que servirá la contraseña?");
 					servir = teclado.readLine(); 
-					contra = MetodosGenerales.GenerarContraseñaLetras(TipoContrasena.larga);
-					System.out.println(contra);
+					contra = MetodosGenerales.GenerarContrasenaLetras(TipoContrasena.larga);
 					c1 = new Contrasena(servir, TipoContrasena.larga, contra);
 					System.out.println(c1.print());
-					mg.guardarContraseña(c1, contra);
+					mg.guardarContrasena(c1, contra);
 					mg.guardarDatos();
 				} catch (NullPointerException e) {
 					System.out.println("Ha habido un error en el proceso de generar la contraseña con letras larga");
@@ -129,7 +123,7 @@ public class Menu {
 			mg.leerDatos();
 			System.out.println("Escribe la contraseña que quieras eliminar");
 			String key=teclado.readLine();
-			mg.eliminarContraseña(key);
+			mg.eliminarContrasena(key);
 			mg.guardarDatos();
 			break;
 		default:
